@@ -1,0 +1,6 @@
+usr/local/bin/neon-qt usr/bin
+share/pixmaps/neon32.xpm usr/share/pixmaps
+share/pixmaps/neon16.xpm usr/share/pixmaps
+share/pixmaps/neon128.png usr/share/pixmaps
+debian/neon-qt.desktop usr/share/applications
+debian/neon-qt.protocol usr/share/kde4/services/

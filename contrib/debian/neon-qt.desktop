@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Nucleon Core
+Comment=Nucleon P2P Cryptocurrency
+Comment[de]=Verbinde mit dem Nucleon peer-to-peer Netzwerk
+Comment[fr]=Nucleon, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Nucleon, eşten eşe kriptografik sanal para birimi
+Exec=neon-qt %u
+Terminal=false
+Type=Application
+Icon=neon128
+MimeType=x-scheme-handler/neon;
+Categories=Office;Finance;

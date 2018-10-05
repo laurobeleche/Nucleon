@@ -1,0 +1,21 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/neon_bg.qm</file>
+        <file alias="de">locale/neon_de.qm</file>
+        <file alias="en">locale/neon_en.qm</file>
+        <file alias="es">locale/neon_es.qm</file>
+        <file alias="fi">locale/neon_fi.qm</file>
+        <file alias="fr">locale/neon_fr.qm</file>
+        <file alias="it">locale/neon_it.qm</file>
+        <file alias="ja">locale/neon_ja.qm</file>
+        <file alias="nl">locale/neon_nl.qm</file>
+        <file alias="pl">locale/neon_pl.qm</file>
+        <file alias="pt">locale/neon_pt.qm</file>
+        <file alias="ru">locale/neon_ru.qm</file>
+        <file alias="sk">locale/neon_sk.qm</file>
+        <file alias="sv">locale/neon_sv.qm</file>
+        <file alias="vi">locale/neon_vi.qm</file>
+        <file alias="zh_CN">locale/neon_zh_CN.qm</file>
+        <file alias="zh_TW">locale/neon_zh_TW.qm</file>
+    </qresource>
+</RCC>

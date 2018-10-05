@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/dash-config.h"
+#include "config/neon-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -92,13 +92,13 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("DASH-light"), QVariant("light"));
-    ui->theme->addItem(QString("DASH-light-hires"), QVariant("light-hires"));
-    ui->theme->addItem(QString("DASH-light-retro"), QVariant("light-retro"));
-    ui->theme->addItem(QString("DASH-light-hires-retro"), QVariant("light-hires-retro"));
-    ui->theme->addItem(QString("DASH-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("DASH-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("DASH-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("NEON-light"), QVariant("light"));
+    ui->theme->addItem(QString("NEON-light-hires"), QVariant("light-hires"));
+    ui->theme->addItem(QString("NEON-light-retro"), QVariant("light-retro"));
+    ui->theme->addItem(QString("NEON-light-hires-retro"), QVariant("light-hires-retro"));
+    ui->theme->addItem(QString("NEON-blue"), QVariant("drkblue"));
+    ui->theme->addItem(QString("NEON-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("NEON-traditional"), QVariant("trad"));
     
     /* Language selector */
     QDir translations(":translations");

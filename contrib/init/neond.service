@@ -1,0 +1,22 @@
+[Unit]
+Description=Nucleon's distributed currency daemon
+After=network.target
+
+[Service]
+User=neoncore
+Group=neoncore
+
+Type=forking
+PIDFile=/var/lib/neond/neond.pid
+ExecStart=/usr/bin/neond -daemon -pid=/var/lib/neond/neond.pid \
+-conf=/etc/neoncore/neon.conf -datadir=/var/lib/neond -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

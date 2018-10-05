@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. dash_test
+	$(MAKE) -C .. neon_test
 clean:
-	$(MAKE) -C .. dash_test_clean
+	$(MAKE) -C .. neon_test_clean
 check:
-	$(MAKE) -C .. dash_test_check
+	$(MAKE) -C .. neon_test_check
