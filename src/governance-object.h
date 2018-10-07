@@ -35,7 +35,10 @@ static const int GOVERNANCE_OBJECT_PROPOSAL = 1;
 static const int GOVERNANCE_OBJECT_TRIGGER = 2;
 static const int GOVERNANCE_OBJECT_WATCHDOG = 3;
 
-static const CAmount GOVERNANCE_PROPOSAL_FEE_TX = (5.0*COIN);
+//The original DASH fee is 5 DASH which is 0.5% of the Masternode rate. Staying in proportion, that would be 500 Nucleon, 
+// but 1000 Nucleon seems the more reasonable choice. It will limit the number of proposals which reduces network 
+//noise and the need for masternodes to vote in a regular manner.
+static const CAmount GOVERNANCE_PROPOSAL_FEE_TX = (1000.0*COIN);
 
 static const int64_t GOVERNANCE_FEE_CONFIRMATIONS = 6;
 static const int64_t GOVERNANCE_MIN_RELAY_FEE_CONFIRMATIONS = 1;
