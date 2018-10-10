@@ -340,7 +340,7 @@ public:
 
         genesis = CreateGenesisBlock(TESTNET_GENESIS_TIMESTAMP, TESTNET_GENESIS_NONCE, 0x1e0ffff0, 1, 50 * COIN);
         
-            if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
+            if (false && (genesis.GetHash() != consensus.hashGenesisBlock)) {
         std::cout << "Begin calculating Genesis Block:" << std::endl;
         LogPrintf("Calculating Genesis Block:\n");
         arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
