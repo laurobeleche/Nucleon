@@ -607,8 +607,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/MealwormsBiz/neon>";
-    const std::string URL_WEBSITE = "<https://neon.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/MealwormsBiz/Nucleon>";
+    const std::string URL_WEBSITE = "<https://mealworms.biz/neonhome.html>";
 
     return CopyrightHolders(_("Copyright (C)"), 2014, COPYRIGHT_YEAR) + "\n" +
            "\n" +
@@ -1802,7 +1802,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
     }
 
     if((!fLiteMode && fTxIndex == false)
-       && chainparams.NetworkIDString() != CBaseChainParams::REGTEST) { // TODO remove this when pruning is fixed. See https://github.com/MealwormsBiz/neon/pull/1817 and https://github.com/MealwormsBiz/neon/pull/1743
+       && chainparams.NetworkIDString() != CBaseChainParams::REGTEST) { // TODO remove this when pruning is fixed. See https://github.com/MealwormsBiz/Nucleon/pull/1817 and https://github.com/MealwormsBiz/Nucleon/pull/1743
         return InitError(_("Transaction index can't be disabled in full mode. Either start with -litemode command line switch or enable transaction index."));
     }
 

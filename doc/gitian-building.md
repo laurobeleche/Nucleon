@@ -309,7 +309,7 @@ Clone the git repositories for Nucleon Core and Gitian.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/MealwormsBiz/neon
+git clone https://github.com/MealwormsBiz/Nucleon
 git clone https://github.com/MealwormsBiz/gitian.sigs.git
 ```
 
@@ -376,7 +376,7 @@ Output from `gbuild` will look something like
     remote: Total 57959 (delta 0), reused 0 (delta 0), pack-reused 57958
     Receiving objects: 100% (57959/57959), 53.76 MiB | 484.00 KiB/s, done.
     Resolving deltas: 100% (41590/41590), done.
-    From https://github.com/MealwormsBiz/neon
+    From https://github.com/MealwormsBiz/Nucleon
     ... (new tags, new branch etc)
     --- Building for trusty amd64 ---
     Stopping target if it is up
@@ -404,9 +404,9 @@ For example:
 ```bash
 URL=https://github.com/crowning-/Nucleon.git
 COMMIT=b616fb8ef0d49a919b72b0388b091aaec5849b96
-./bin/gbuild --commit neon=${COMMIT} --url neon=${URL} ../neon/contrib/gitian-descriptors/gitian-linux.yml
-./bin/gbuild --commit neon=${COMMIT} --url neon=${URL} ../neon/contrib/gitian-descriptors/gitian-win.yml
-./bin/gbuild --commit neon=${COMMIT} --url neon=${URL} ../neon/contrib/gitian-descriptors/gitian-osx.yml
+./bin/gbuild --commit neon=${COMMIT} --url neon=${URL} ../Nucleon/contrib/gitian-descriptors/gitian-linux.yml
+./bin/gbuild --commit neon=${COMMIT} --url neon=${URL} ../Nucleon/contrib/gitian-descriptors/gitian-win.yml
+./bin/gbuild --commit neon=${COMMIT} --url neon=${URL} ../Nucleon/contrib/gitian-descriptors/gitian-osx.yml
 ```
 
 Building fully offline
@@ -432,7 +432,7 @@ cd /path/to/gitian-builder
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root apt-get update
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root \
   -e DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends -y install \
-  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../neon/contrib/gitian-descriptors/*|sort|uniq )
+  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../Nucleon/contrib/gitian-descriptors/*|sort|uniq )
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root apt-get -q -y purge grub
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root -e DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 ```
@@ -454,10 +454,10 @@ Then when building, override the remote URLs that gbuild would otherwise pull fr
 cd /some/root/path/
 git clone https://github.com/MealwormsBiz/neon-detached-sigs.git
 
-BTCPATH=/some/root/path/neon
+BTCPATH=/some/root/path/Nucleon
 SIGPATH=/some/root/path/neon-detached-sigs
 
-./bin/gbuild --url neon=${BTCPATH},signature=${SIGPATH} ../neon/contrib/gitian-descriptors/gitian-win-signer.yml
+./bin/gbuild --url neon=${BTCPATH},signature=${SIGPATH} ../Nucleon/contrib/gitian-descriptors/gitian-win-signer.yml
 ```
 
 Signing externally

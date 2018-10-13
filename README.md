@@ -16,7 +16,7 @@ are carried out collectively by the network. Nucleon Core is the name of the ope
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Nucleon Core software, see https://www.neon.org/get-neon/.
+the Nucleon Core software, see https://mealworms.biz/neonhome.html.
 
 
 License
@@ -29,7 +29,7 @@ Development Process
 -------------------
 
 The `master` branch is meant to be stable. Development is normally done in separate branches.
-[Tags](https://github.com/MealwormsBiz/neon/tags) are created to indicate new official,
+[Tags](https://github.com/MealwormsBiz/Nucleon/tags) are created to indicate new official,
 stable release versions of Nucleon Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -74,4 +74,3 @@ Translations are periodically pulled from Transifex and merged into the git repo
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
 
-Translators should also follow the [forum](https://www.neon.org/forum/topic/neon-worldwide-collaboration.88/).

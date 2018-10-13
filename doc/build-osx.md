@@ -29,7 +29,7 @@ Build Nucleon Core
 
 1. Clone the Nucleon Core source code and cd into `neon`
 
-        git clone https://github.com/MealwormsBiz/neon
+        git clone https://github.com/MealwormsBiz/Nucleon
         cd neon
 
 2.  Build Nucleon Core:

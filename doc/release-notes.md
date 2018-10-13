@@ -1,4 +1,4 @@
-Nucleon Core version 0.12.3.3
+Nucleon Core version 2.0.0.0
 ==========================
 
 Release is now available from:
@@ -26,15 +26,15 @@ neond/neon-qt (on Linux).
 Downgrade warning
 -----------------
 
-### Downgrade to a version < 0.12.2.2
+### Downgrade to a version < 2.0.0.0
 
-Because release 0.12.2.2 included the [per-UTXO fix](release-notes/neon/release-notes-0.12.2.2.md#per-utxo-fix)
+Because release 2.0.0.0 included the [per-UTXO fix](release-notes/neon/release-notes-2.0.0.0.md#per-utxo-fix)
 which changed the structure of the internal database, you will have to reindex
-the database if you decide to use any pre-0.12.2.2 version.
+the database if you decide to use any pre-2.0.0.0 version.
 
 Wallet forward or backward compatibility was not affected.
 
-### Downgrade to 0.12.2.2/3, 0.12.3.1/2
+### Downgrade to 2.0.0.0
 
 Downgrading to these versions does not require any additional actions, should be
 fully compatible.
@@ -49,10 +49,10 @@ Fix crash bug with duplicate inputs within a transaction
 There was a critical bug discovered in Bitcoin Core's codebase recently which
 can cause node receiving a block to crash https://github.com/bitcoin/bitcoin/pull/14247
 
-0.12.3.3 Change log
+2.0.0.0 Change log
 ===================
 
-See detailed [set of changes](https://github.com/MealwormsBiz/neon/compare/v0.12.3.2...MealwormsBiz:v0.12.3.3).
+See detailed [set of changes](https://github.com/MealwormsBiz/neon/compare/v0.12.3.2...MealwormsBiz:v2.0.0.0).
 
 Credits
 =======
@@ -87,7 +87,7 @@ These release are considered obsolete. Old release notes can be found here:
 - [v0.12.3.2](https://github.com/MealwormsBiz/neon/blob/master/doc/release-notes/neon/release-notes-0.12.3.2.md) released Jul/09/2018
 - [v0.12.3.1](https://github.com/MealwormsBiz/neon/blob/master/doc/release-notes/neon/release-notes-0.12.3.1.md) released Jul/03/2018
 - [v0.12.2.3](https://github.com/MealwormsBiz/neon/blob/master/doc/release-notes/neon/release-notes-0.12.2.3.md) released Jan/12/2018
-- [v0.12.2.2](https://github.com/MealwormsBiz/neon/blob/master/doc/release-notes/neon/release-notes-0.12.2.2.md) released Dec/17/2017
+- [v2.0.0.0](https://github.com/MealwormsBiz/neon/blob/master/doc/release-notes/neon/release-notes-2.0.0.0.md) released Dec/17/2017
 - [v0.12.2](https://github.com/MealwormsBiz/neon/blob/master/doc/release-notes/neon/release-notes-0.12.2.md) released Nov/08/2017
 - [v0.12.1](https://github.com/MealwormsBiz/neon/blob/master/doc/release-notes/neon/release-notes-0.12.1.md) released Feb/06/2017
 - [v0.12.0](https://github.com/MealwormsBiz/neon/blob/master/doc/release-notes/neon/release-notes-0.12.0.md) released Jun/15/2015

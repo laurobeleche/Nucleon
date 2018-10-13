@@ -210,7 +210,7 @@ public:
         pchMessageStart[2] = 0x2b;
         pchMessageStart[3] = 0xba;
         vAlertPubKey = ParseHex("04f89d9aba82ec0087bebed21b5f23eccbfa4c97e9e64575eed880fbcb22c715a7674efbf4b8668dd67197d1b2e505fc20575914c6d8c36b2023676361c63b0336");
-        nDefaultPort = 9999;
+        nDefaultPort = 12445;
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(MAINNET_GENESIS_TIMESTAMP, MAINNET_GENESIS_NONCE, 0x1e0ffff0, 1, 50 * COIN);
@@ -219,8 +219,7 @@ public:
         assert(consensus.hashGenesisBlock == uint256S(MAINNET_GENESIS_HASH));
         assert(genesis.hashMerkleRoot == uint256S(GENESIS_MERKLE_ROOT));
 
-        vSeeds.clear();
-        //vSeeds.push_back(CDNSSeedData("neon.org", "dnsseed.neon.org"));
+        vSeeds.push_back(CDNSSeedData("neonseeds1", "neonseeds.mealworms.biz"));
 
         // Nucleon addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,53);
@@ -335,7 +334,7 @@ public:
         pchMessageStart[2] = 0xcb;
         pchMessageStart[3] = 0xfe;
         vAlertPubKey = ParseHex("04c877d1457b9ff77ff25c14a0796f4b7cf45e6926913a5774b252b8e1b0ed3075f7e8205d9fe81565480a8e067666143b952246a852d95b09f8aefbc60650b642");
-        nDefaultPort = 19999;
+        nDefaultPort = 14225;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(TESTNET_GENESIS_TIMESTAMP, TESTNET_GENESIS_NONCE, 0x1e0ffff0, 1, 50 * COIN);
