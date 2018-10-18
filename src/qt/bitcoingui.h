@@ -98,6 +98,7 @@ private:
     QAction *historyAction;
     QAction *masternodeAction;
     QAction *quitAction;
+    QAction *websiteAction;
     QAction *sendCoinsAction;
     QAction *sendCoinsMenuAction;
     QAction *usedSendingAddressesAction;
@@ -223,6 +224,9 @@ private Q_SLOTS:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage(QString addr = "");
+    
+    /** Go to website */
+    void gotoWebsite();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");

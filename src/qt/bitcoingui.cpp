@@ -59,6 +59,7 @@
 #include <QTimer>
 #include <QToolBar>
 #include <QVBoxLayout>
+#include <QDesktopServices>
 
 #if QT_VERSION < 0x050000
 #include <QTextDocument>
@@ -98,6 +99,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     overviewAction(0),
     historyAction(0),
     masternodeAction(0),
+    websiteAction(0),
     quitAction(0),
     sendCoinsAction(0),
     sendCoinsMenuAction(0),
@@ -357,6 +359,17 @@ void BitcoinGUI::createActions()
         connect(masternodeAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
         connect(masternodeAction, SIGNAL(triggered()), this, SLOT(gotoMasternodePage()));
     }
+    
+    websiteAction = new QAction(QIcon(":/icons/" + theme + "/website"), tr("&Website"), this);
+    websiteAction->setStatusTip(tr("Nucleon Website"));
+    websiteAction->setToolTip(websiteAction->statusTip());
+    websiteAction->setCheckable(true);
+#ifdef Q_OS_MAC
+    websiteAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_6));
+#else
+    websiteAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+#endif
+    tabGroup->addAction(websiteAction);
 
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
@@ -372,6 +385,8 @@ void BitcoinGUI::createActions()
     connect(receiveCoinsMenuAction, SIGNAL(triggered()), this, SLOT(gotoReceiveCoinsPage()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
+    connect(websiteAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(websiteAction, SIGNAL(triggered()), this, SLOT(gotoWebsite()));
 #endif // ENABLE_WALLET
 
     quitAction = new QAction(QIcon(":/icons/" + theme + "/quit"), tr("E&xit"), this);
@@ -569,6 +584,7 @@ void BitcoinGUI::createToolBars()
         {
             toolbar->addAction(masternodeAction);
         }
+        toolbar->addAction(websiteAction);
         toolbar->setMovable(false); // remove unused icon in upper left corner
         overviewAction->setChecked(true);
 
@@ -717,6 +733,7 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
     if (!fLiteMode && settings.value("fShowMasternodesTab").toBool() && masternodeAction) {
         masternodeAction->setEnabled(enabled);
     }
+    websiteAction->setEnabled(enabled);
     encryptWalletAction->setEnabled(enabled);
     backupWalletAction->setEnabled(enabled);
     changePassphraseAction->setEnabled(enabled);
@@ -881,6 +898,13 @@ void BitcoinGUI::gotoHistoryPage()
 {
     historyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
+}
+
+void BitcoinGUI::gotoWebsite()
+{
+    //QDesktopServices::openUrl(QUrl("https://www.k2xmedia.com/"));
+    websiteAction->setChecked(true);
+    if (walletFrame) walletFrame->gotoWebsitePage();
 }
 
 void BitcoinGUI::gotoMasternodePage()
@@ -1492,7 +1516,7 @@ UnitDisplayStatusBarControl::UnitDisplayStatusBarControl(const PlatformStyle *pl
     }
     setMinimumSize(max_width, 0);
     setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    setStyleSheet(QString("QLabel { color : %1 }").arg(platformStyle->SingleColor().name()));
+    setStyleSheet(QString("QLabel { color : #fff }").arg(platformStyle->SingleColor().name()));
 }
 
 /** So that it responds to button clicks */

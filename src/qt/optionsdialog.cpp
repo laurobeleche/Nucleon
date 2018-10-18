@@ -92,13 +92,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("NEON-light"), QVariant("light"));
-    ui->theme->addItem(QString("NEON-light-hires"), QVariant("light-hires"));
-    ui->theme->addItem(QString("NEON-light-retro"), QVariant("light-retro"));
-    ui->theme->addItem(QString("NEON-light-hires-retro"), QVariant("light-hires-retro"));
-    ui->theme->addItem(QString("NEON-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("NEON-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("NEON-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("NEON-default"), QVariant("default"));
     
     /* Language selector */
     QDir translations(":translations");
