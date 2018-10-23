@@ -42,7 +42,7 @@ WalletView::WalletView(const PlatformStyle *_platformStyle, QWidget *parent):
     // Create tabs
     overviewPage = new OverviewPage(platformStyle);
     
-    onthewebPage = new Ontheweb(this);
+    //onthewebPage = new Ontheweb(this);
 
     transactionsPage = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
@@ -90,7 +90,7 @@ WalletView::WalletView(const PlatformStyle *_platformStyle, QWidget *parent):
         addWidget(masternodeListPage);
     }
     
-    addWidget(onthewebPage);
+    //addWidget(onthewebPage);
 
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
@@ -164,7 +164,7 @@ void WalletView::setWalletModel(WalletModel *_walletModel)
     sendCoinsPage->setModel(_walletModel);
     usedReceivingAddressesPage->setModel(_walletModel->getAddressTableModel());
     usedSendingAddressesPage->setModel(_walletModel->getAddressTableModel());
-    onthewebPage->setModel(_walletModel);
+    //onthewebPage->setModel(_walletModel);
     
     if (_walletModel)
     {
@@ -222,7 +222,7 @@ void WalletView::gotoHistoryPage()
 
 void WalletView::gotoWebsitePage()
 {
-    setCurrentWidget(onthewebPage);
+   // setCurrentWidget(onthewebPage);
 }
 
 void WalletView::gotoMasternodePage()

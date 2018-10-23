@@ -124,9 +124,9 @@ void WalletFrame::gotoHistoryPage()
 
 void WalletFrame::gotoWebsitePage()
 {
-    QMap<QString, WalletView*>::const_iterator i;
-    for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i)
-        i.value()->gotoWebsitePage();
+    //QMap<QString, WalletView*>::const_iterator i;
+    //for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i)
+    //    i.value()->gotoWebsitePage();
 }
 
 void WalletFrame::gotoMasternodePage()

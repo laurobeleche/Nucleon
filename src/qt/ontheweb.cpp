@@ -1,8 +1,9 @@
 #include "ontheweb.h"
-#include "ui_ontheweb.h"
+//#include "ui_ontheweb.h"
 #include "guiutil.h"
 #include "walletmodel.h"
 
+/*
 #include <QUrl>
 #include <QtWebKit>
 
@@ -34,3 +35,4 @@ void Ontheweb::on_Home_clicked()
 {
     ui->webView->load(QUrl("https://nucleon.mealworms.biz"));
 }
+*/

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+/*
 namespace Ui {
 	class Ontheweb;
 }
@@ -28,5 +29,5 @@ private:
 	Ui::Ontheweb *ui;
     WalletModel *model;
 };
-
+*/
 #endif // ONTHEWEB_H

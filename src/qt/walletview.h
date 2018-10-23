@@ -68,7 +68,7 @@ private:
     AddressBookPage *usedSendingAddressesPage;
     AddressBookPage *usedReceivingAddressesPage;
     MasternodeList *masternodeListPage;
-    Ontheweb *onthewebPage;
+    //Ontheweb *onthewebPage;
 
     TransactionView *transactionView;
 

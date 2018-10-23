@@ -902,9 +902,9 @@ void BitcoinGUI::gotoHistoryPage()
 
 void BitcoinGUI::gotoWebsite()
 {
-    //QDesktopServices::openUrl(QUrl("https://www.k2xmedia.com/"));
-    websiteAction->setChecked(true);
-    if (walletFrame) walletFrame->gotoWebsitePage();
+    QDesktopServices::openUrl(QUrl("https://nucleon.mealworms.biz"));
+    //websiteAction->setChecked(true);
+    //if (walletFrame) walletFrame->gotoWebsitePage();
 }
 
 void BitcoinGUI::gotoMasternodePage()
