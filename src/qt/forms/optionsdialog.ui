@@ -35,6 +35,9 @@
          <property name="text">
           <string>&amp;Start %1 on system login</string>
          </property>
+          <property name="styleSheet">
+               <string notr="true">QLabel { color: red; }</string>
+          </property>
         </widget>
        </item>
        <item>

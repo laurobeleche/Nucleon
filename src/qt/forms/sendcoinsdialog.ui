@@ -941,9 +941,6 @@
               <layout class="QVBoxLayout" name="verticalLayoutFee4" stretch="0,1">
                <item>
                 <widget class="QRadioButton" name="radioSmartFee">
-                  <property name="styleSheet">
-                    <string notr="true">color:white;</string>
-                 </property>
                  <property name="text">
                   <string>Recommended:</string>
                  </property>

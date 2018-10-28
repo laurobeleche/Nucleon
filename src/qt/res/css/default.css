@@ -697,6 +697,7 @@ padding-bottom:8px;
 
 QDialog#OptionsDialog QCheckBox {
 min-height:20px;
+color:#000;  
 }
 
 QDialog#OptionsDialog QCheckBox#displayAddresses {
@@ -1702,3 +1703,22 @@ ModalOverlay#ModalOverlay > .QLabel {
 color:#fff;
 }
 
+QDialog#SendCoinsDialog .QRadioButton#radioCustomFee { 
+color:#fff;
+background-color:transparent;
+}
+
+QDialog#SendCoinsDialog .QRadioButton#radioCustomPerKilobyte { 
+color:#fff;
+background-color:transparent;
+}
+
+QDialog#SendCoinsDialog .QRadioButton#radioSmartFee { 
+color:#fff;
+background-color:transparent;
+}
+
+QDialog#SendCoinsDialog .QRadioButton#radioCustomAtLeast { 
+color:#fff;
+background-color:transparent;
+}
