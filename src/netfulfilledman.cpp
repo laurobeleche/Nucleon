@@ -20,7 +20,7 @@ bool CNetFulfilledRequestManager::HasFulfilledRequest(const CService& addr, cons
     LOCK(cs_mapFulfilledRequests);
     CService addrSquashed = Params().AllowMultiplePorts() ? addr : CService(addr, 0);
     fulfilledreqmap_t::iterator it = mapFulfilledRequests.find(addrSquashed);
-
+    
     return  it != mapFulfilledRequests.end() &&
             it->second.find(strRequest) != it->second.end() &&
             it->second[strRequest] > GetTime();

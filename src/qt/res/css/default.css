@@ -1211,6 +1211,10 @@ QWidget#bgWidget .QPushButton#closeButton {
 
 /* SEND DIALOG */
 
+QDialog#SendCoinsDialog > .QLabel {
+color:#fff;
+}
+
 QDialog#SendCoinsDialog .QFrame#frameCoinControl { /* Coin Control Section */
 
 }

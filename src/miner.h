@@ -24,7 +24,6 @@ class CWallet;
 namespace Consensus { struct Params; };
 
 static const bool DEFAULT_PRINTPRIORITY = false;
-static const int DEFAULT_GENERATE_THREADS = 1;
 
 struct CBlockTemplate
 {

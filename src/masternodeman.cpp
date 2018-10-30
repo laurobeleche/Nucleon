@@ -162,6 +162,8 @@ bool CMasternodeMan::PoSeBan(const COutPoint &outpoint)
 void CMasternodeMan::Check()
 {
     LOCK2(cs_main, cs);
+    
+    activeMasternode.UpdateSentinelPing(DEFAULT_SENTINEL_VERSION);
 
     LogPrint("masternode", "CMasternodeMan::Check -- nLastSentinelPingTime=%d, IsSentinelPingActive()=%d\n", nLastSentinelPingTime, IsSentinelPingActive());
 
@@ -1713,7 +1715,7 @@ void CMasternodeMan::WarnMasternodeDaemonUpdates()
 
     for (const auto& mnpair : mapMasternodes) {
         if (mnpair.second.lastPing.nDaemonVersion > CLIENT_VERSION) {
-            ++nUpdatedMasternodes;
+           ++nUpdatedMasternodes;
         }
     }
 

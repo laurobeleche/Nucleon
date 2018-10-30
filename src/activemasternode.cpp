@@ -103,6 +103,8 @@ bool CActiveMasternode::SendMasternodePing(CConnman& connman)
         LogPrintf("CActiveMasternode::SendMasternodePing -- ERROR: Couldn't sign Masternode Ping\n");
         return false;
     }
+    
+    printf("%s fSentinelIsCurrent:%d GetAdjustedTime:%d nSentinelPingTime:%d",__func__, mnp.fSentinelIsCurrent, GetAdjustedTime() , nSentinelPingTime);
 
     // Update lastPing for our masternode in Masternode list
     if(mnodeman.IsMasternodePingedWithin(outpoint, MASTERNODE_MIN_MNP_SECONDS, mnp.sigTime)) {
@@ -121,14 +123,7 @@ bool CActiveMasternode::SendMasternodePing(CConnman& connman)
 bool CActiveMasternode::UpdateSentinelPing(int version)
 {
     nSentinelVersion = version;
-    if(version < MIN_SENTINEL_VERSION ){
-        LogPrintf("CActiveMasternode::UpdateSentinelPing -- Sentinel is out of date please update. Version = %s\n", SafeIntVersionToString(version));
-        return false;
-    }
     nSentinelPingTime = GetAdjustedTime();
-    
-    LogPrint("masternode", "CActiveMasternode::UpdateSentinelPing -- Updated Sentinel Version = %s PingTime = %d\n", SafeIntVersionToString(nSentinelVersion), nSentinelPingTime);
-
 
     return true;
 }
