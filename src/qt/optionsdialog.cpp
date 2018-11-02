@@ -92,7 +92,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("NEON-default"), QVariant("default"));
+    ui->theme->addItem(QString("(default)"), QVariant("default"));
     
     /* Language selector */
     QDir translations(":translations");

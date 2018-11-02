@@ -56,13 +56,13 @@ static const bool DEFAULT_WHITELISTRELAY = true;
 /** Default for DEFAULT_WHITELISTFORCERELAY. */
 static const bool DEFAULT_WHITELISTFORCERELAY = true;
 /** Default for -minrelaytxfee, minimum relay fee for transactions */
-static const CAmount DEFAULT_MIN_RELAY_TX_FEE = 1000000;
+static const CAmount DEFAULT_MIN_RELAY_TX_FEE = 50 * COIN;
 //! -maxtxfee default
-static const CAmount DEFAULT_TRANSACTION_MAXFEE = 100 * COIN; // "smallest denom" + X * "denom tails"
+static const CAmount DEFAULT_TRANSACTION_MAXFEE =  5000 * COIN; // "smallest denom" + X * "denom tails"
 //! Discourage users to set fees higher than this amount (in duffs) per kB
-static const CAmount HIGH_TX_FEE_PER_KB = 100 * COIN;
+static const CAmount HIGH_TX_FEE_PER_KB = 200 * COIN;
 //! -maxtxfee will warn if called with a higher fee than this amount (in duffs)
-static const CAmount HIGH_MAX_TX_FEE = 100000 * HIGH_TX_FEE_PER_KB;
+static const CAmount HIGH_MAX_TX_FEE = 2 * HIGH_TX_FEE_PER_KB;
 /** Default for -limitancestorcount, max number of in-mempool ancestors */
 static const unsigned int DEFAULT_ANCESTOR_LIMIT = 25;
 /** Default for -limitancestorsize, maximum kilobytes of tx + all in-mempool ancestors */

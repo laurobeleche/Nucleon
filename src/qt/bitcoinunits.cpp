@@ -22,7 +22,6 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
     unitlist.append(NEON);
     unitlist.append(mNEON);
     unitlist.append(uNEON);
-    unitlist.append(duffs);
     return unitlist;
 }
 
@@ -33,7 +32,6 @@ bool BitcoinUnits::valid(int unit)
     case NEON:
     case mNEON:
     case uNEON:
-    case duffs:
         return true;
     default:
         return false;
@@ -49,7 +47,6 @@ QString BitcoinUnits::name(int unit)
             case NEON: return QString("NEON");
             case mNEON: return QString("mNEON");
             case uNEON: return QString::fromUtf8("μNEON");
-            case duffs: return QString("duffs");
             default: return QString("???");
         }
     }
@@ -60,7 +57,6 @@ QString BitcoinUnits::name(int unit)
             case NEON: return QString("tNEON");
             case mNEON: return QString("mtNEON");
             case uNEON: return QString::fromUtf8("μtNEON");
-            case duffs: return QString("tduffs");
             default: return QString("???");
         }
     }
@@ -75,7 +71,6 @@ QString BitcoinUnits::description(int unit)
             case NEON: return QString("Nucleon");
             case mNEON: return QString("Milli-Nucleon (1 / 1" THIN_SP_UTF8 "000)");
             case uNEON: return QString("Micro-Nucleon (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-Nucleon (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -86,7 +81,6 @@ QString BitcoinUnits::description(int unit)
             case NEON: return QString("TestNucleons");
             case mNEON: return QString("Milli-TestNucleon (1 / 1" THIN_SP_UTF8 "000)");
             case uNEON: return QString("Micro-TestNucleon (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-TestNucleon (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -99,7 +93,6 @@ qint64 BitcoinUnits::factor(int unit)
     case NEON:  return 100000000;
     case mNEON: return 100000;
     case uNEON: return 100;
-    case duffs: return 1;
     default:   return 100000000;
     }
 }
@@ -111,7 +104,6 @@ int BitcoinUnits::decimals(int unit)
     case NEON: return 8;
     case mNEON: return 5;
     case uNEON: return 2;
-    case duffs: return 0;
     default: return 0;
     }
 }

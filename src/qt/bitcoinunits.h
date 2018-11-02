@@ -59,8 +59,7 @@ public:
     {
         NEON,
         mNEON,
-        uNEON,
-        duffs
+        uNEON
     };
 
     enum SeparatorStyle
