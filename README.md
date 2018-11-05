@@ -3,7 +3,7 @@ Nucleon Core staging tree 0.12.3
 
 `master:` [![Build Status](https://travis-ci.org/MealwormsBiz/Nucleon.svg?branch=master)](https://travis-ci.org/MealwormsBiz/Nucleon) `develop:` [![Build Status](https://travis-ci.org/MealwormsBiz/Nucleon.svg?branch=develop)](https://travis-ci.org/MealwormsBiz/Nucleon/branches)
 
-https://mealworms.biz/neonhome.html
+https://neon.mealworms.biz
 
 
 What is Nucleon?
@@ -16,7 +16,7 @@ are carried out collectively by the network. Nucleon Core is the name of the ope
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Nucleon Core software, see https://mealworms.biz/neonhome.html.
+the Nucleon Core software, see https://neon.mealworms.biz
 
 
 License
