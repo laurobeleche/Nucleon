@@ -158,8 +158,8 @@ public:
         consensus.nGovernanceFilterElements = 20000;
         consensus.nMasternodeMinimumConfirmations = 15;
         consensus.BIP34Height = 1;
-        consensus.BIP34Hash = uint256S("0x000007d91d1254d60e2dd1ae580383070a4ddffa4c64c2eeb4a2f9ecc0414343");
-        consensus.BIP65Height = 20; // 00000000000076d8fcea02ec0963de4abfd01e771fec0863f960c2c64fe6f357
+        consensus.BIP34Hash = uint256S("0x0000034df107446b8b0e5039bf72faaf7a084937c1db9de2d84271a032667e30");
+        consensus.BIP65Height = 20; // 00000fc2fc46079427f2c684e3467de2675654c47a94f3d207a2d917d138024d
         consensus.BIP66Height = 10; // 00000000000b1fa2dfa312863570e13fae9ca7b5566cb27e55422620b469aefa
         consensus.DIP0001Height = 30;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
@@ -195,7 +195,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); // 0
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000014a00bd6"); // 320
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S(MAINNET_GENESIS_HASH); // 0
@@ -220,7 +220,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S(GENESIS_MERKLE_ROOT));
 
         vSeeds.push_back(CDNSSeedData("neonseeds1", "neonseeds.mealworms.biz"));
-
+        vSeeds.push_back(CDNSSeedData("neonseeds2", "neonseeds02.mealworms.biz"));
+        vSeeds.push_back(CDNSSeedData("neonseeds3", "neonseeds03.mealworms.biz"));
+        vSeeds.push_back(CDNSSeedData("neonseeds4", "149.28.241.167"));
+        vSeeds.push_back(CDNSSeedData("neonseeds5", "65.30.166.214"));
+        vSeeds.push_back(CDNSSeedData("neonseeds6", "67.169.210.168"));
+        
         // Nucleon addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,53);
         // Nucleon script addresses start with '8'
@@ -251,12 +256,14 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  0, uint256S(MAINNET_GENESIS_HASH))
+            (    0, uint256S(MAINNET_GENESIS_HASH))
+            (    1, uint256S("0x0000034df107446b8b0e5039bf72faaf7a084937c1db9de2d84271a032667e30"))
+            (  320, uint256S("0x00000029a198a53c641172d76b5e6f4eab8a6415f2842723798be418e8e670a5"))
         };
 
         chainTxData = ChainTxData{
             MAINNET_GENESIS_TIMESTAMP, // * UNIX timestamp of last known number of transactions
-            0,    // * total number of transactions between genesis and that timestamp
+            331,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.1         // * estimated number of transactions per second after that timestamp
         };
@@ -324,10 +331,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 50; // 50% of 100
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000003cd72a542"); // 4000
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000014a00bd6"); // 329
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000000004a7878409189b7a8f75b3815d9b8c45ee8f79955a6c727d83bddb04"); // 143200
+        consensus.defaultAssumeValid = uint256S("0x00000029a198a53c641172d76b5e6f4eab8a6415f2842723798be418e8e670a5"); // 329
 
         pchMessageStart[0] = 0xcb;
         pchMessageStart[1] = 0xe3;
@@ -338,34 +345,6 @@ public:
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(TESTNET_GENESIS_TIMESTAMP, TESTNET_GENESIS_NONCE, 0x1e0ffff0, 1, 50 * COIN);
-        
-            if (false && (genesis.GetHash() != consensus.hashGenesisBlock)) {
-        std::cout << "Begin calculating Genesis Block:" << std::endl;
-        LogPrintf("Calculating Genesis Block:\n");
-        arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
-        uint256 hash;
-        genesis.nNonce = 0;
-        // This will figure out a valid hash and Nonce if you're creating a different genesis block:
-        while (UintToArith256(genesis.GetHash()) > hashTarget)
-        {
-            ++genesis.nNonce;
-            if (genesis.nNonce == 0)
-            {
-                LogPrintf("NONCE WRAPPED, incrementing time");
-                std::cout << "NONCE WRAPPED, incrementing time:" << std::endl;
-                ++genesis.nTime;
-            }
-            if (genesis.nNonce % 10000 == 0)
-            {
-                LogPrintf("Genesis: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
-            }
-        }
-        std::cout << "   Nonce: " << genesis.nNonce << std::endl;
-        std::cout << "   Timestamp: " << genesis.nTime << std::endl;
-        std::cout << "   Genesis hash: " << genesis.GetHash().GetHex() << std::endl;
-        std::cout << "   Merkle Root: "  << genesis.hashMerkleRoot.GetHex() << "\n" << std::endl;
-    }
-    
     
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S(TESTNET_GENESIS_HASH));
@@ -492,35 +471,7 @@ public:
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(DEV_GENESIS_TIMESTAMP, DEV_GENESIS_NONCE, 0x207fffff, 1, 50 * COIN);
-        
-            if (false && (genesis.GetHash() != consensus.hashGenesisBlock)) {
-        std::cout << "Begin calculating Genesis Block:" << std::endl;
-        LogPrintf("Calculating Genesis Block:\n");
-        arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
-        uint256 hash;
-        genesis.nNonce = 0;
-        // This will figure out a valid hash and Nonce if you're creating a different genesis block:
-        while (UintToArith256(genesis.GetHash()) > hashTarget)
-        {
-            ++genesis.nNonce;
-            if (genesis.nNonce == 0)
-            {
-                LogPrintf("NONCE WRAPPED, incrementing time");
-                std::cout << "NONCE WRAPPED, incrementing time:" << std::endl;
-                ++genesis.nTime;
-            }
-            if (genesis.nNonce % 10000 == 0)
-            {
-                LogPrintf("Genesis: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
-            }
-        }
-        std::cout << "   Nonce: " << genesis.nNonce << std::endl;
-        std::cout << "   Timestamp: " << genesis.nTime << std::endl;
-        std::cout << "   Genesis hash: " << genesis.GetHash().GetHex() << std::endl;
-        std::cout << "   Merkle Root: "  << genesis.hashMerkleRoot.GetHex() << "\n" << std::endl;
-    }
-    
-        
+
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S(DEV_GENESIS_HASH));
         assert(genesis.hashMerkleRoot == uint256S(GENESIS_MERKLE_ROOT));
@@ -638,34 +589,6 @@ public:
 
         genesis = CreateGenesisBlock(REGTEST_GENESIS_TIMESTAMP, REGTEST_GENESIS_NONCE, 0x207fffff, 1, 50 * COIN);
         
-            if (false && (genesis.GetHash() != consensus.hashGenesisBlock)) {
-        std::cout << "Begin calculating Genesis Block:" << std::endl;
-        LogPrintf("Calculating Genesis Block:\n");
-        arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
-        uint256 hash;
-        genesis.nNonce = 0;
-        // This will figure out a valid hash and Nonce if you're creating a different genesis block:
-        while (UintToArith256(genesis.GetHash()) > hashTarget)
-        {
-            ++genesis.nNonce;
-            if (genesis.nNonce == 0)
-            {
-                LogPrintf("NONCE WRAPPED, incrementing time");
-                std::cout << "NONCE WRAPPED, incrementing time:" << std::endl;
-                ++genesis.nTime;
-            }
-            if (genesis.nNonce % 10000 == 0)
-            {
-                LogPrintf("Genesis: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
-            }
-        }
-        std::cout << "   Nonce: " << genesis.nNonce << std::endl;
-        std::cout << "   Timestamp: " << genesis.nTime << std::endl;
-        std::cout << "   Genesis hash: " << genesis.GetHash().GetHex() << std::endl;
-        std::cout << "   Merkle Root: "  << genesis.hashMerkleRoot.GetHex() << "\n" << std::endl;
-    }
-    
-    
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S(REGTEST_GENESIS_HASH));
         assert(genesis.hashMerkleRoot == uint256S(GENESIS_MERKLE_ROOT));
