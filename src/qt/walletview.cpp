@@ -19,7 +19,7 @@
 #include "transactiontablemodel.h"
 #include "transactionview.h"
 #include "walletmodel.h"
-#include "ontheweb.h"
+//#include "ontheweb.h"
 
 #include "ui_interface.h"
 
