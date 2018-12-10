@@ -1304,14 +1304,16 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 }
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
-{             
-    double dMasternodePart;
+{
+    double dMasternodeBase = 0.5;
+    double dMasternodePart = 0.9; // Ceiling of 90% of the block reward after block 50k
+    double dMasternodeModifier = (nHeight - 10000) / 100000; // Modifier used for sliding scale
 
     // mainnet:
-    if(nHeight < Params().GetConsensus().nMasternodePaymentsIncreaseBlock){
-        dMasternodePart = 0.5; // 50% of the block reward.
-    } else {
-        dMasternodePart = 0.8; // 80% of the block reward.
+    if(nHeight < 10000){ 
+        dMasternodePart = dMasternodeBase; // 50% of the block reward
+    } else if(nHeight => 10000 && nHeight <= 50000){
+        dMasternodePart = dMasternodeBase + dMasternodeModifier; // Sliding scale from 50% to 90% of the block reward
     }
 
     return (blockValue * dMasternodePart);
