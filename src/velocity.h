@@ -13,11 +13,11 @@
 class CBlock;
 class CBlockIndex;
 
-static const          int VELOCITY_HEIGHT[]    = { params.nPoWVelocityHeight }; /** Height to start Velocity */
-static const          int VELOCITY_TERMINAL[]  = { params.nPowVRXHeight }; /** Height to start Velocity retargetting */
-static const          int VELOCITY_MAX_RATE[]  = { params.nPowTargetSpacing + (3 * 60) }; /** Rate to Velocity in seconds */
-static const          int VELOCITY_RATE[]      = { params.nPowTargetSpacing }; /** Rate to Velocity in seconds */
-static const          int VELOCITY_MIN_RATE[]  = { params.nPowTargetSpacing - (3 * 60) }; /** Rate to Velocity in seconds */
+static const          int VELOCITY_HEIGHT[]    = { 6335 }; /** Height to start Velocity */
+static const          int VELOCITY_TERMINAL[]  = { 6330 }; /** Height to start Velocity retargetting */
+static const          int VELOCITY_MAX_RATE[]  = { (1 * 8 * 60) + (3 * 60) }; /** Rate to Velocity in seconds */
+static const          int VELOCITY_RATE[]      = { (1 * 8 * 60) }; /** Rate to Velocity in seconds */
+static const          int VELOCITY_MIN_RATE[]  = { (1 * 8 * 60) - (3 * 60) }; /** Rate to Velocity in seconds */
 static const unsigned int VELOCITY_MIN_TX[]    = { 0 }; /** Minimum amount (not value of!) of TX in a block to bypass Velocity-Rate */
 static const          int VELOCITY_MIN_VALUE[] = { 0 }; /** Minimum value of the TX in a block to bypass Velocity-Rate (without COIN base) */
 static const          int VELOCITY_MIN_FEE[]   = { 0 }; /** Minimum value of accumulated fees of the TX in a block to bypass Velocity-Rate (without COIN base) */

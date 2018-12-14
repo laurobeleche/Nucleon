@@ -3548,7 +3548,7 @@ static bool AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CValidation
     if(Velocity_check(nHeight))
     {
         // Announce Velocity constraint failure
-        if(!Velocity(pindex->pprev, *block))
+        if(!Velocity(pindex->pprev, *pblock))
         {
             return state.DoS(100, error("AcceptBlock() : Velocity rejected block %d, required parameters not met", nHeight));
         }
