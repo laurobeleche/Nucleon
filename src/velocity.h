@@ -25,7 +25,7 @@ static const         bool VELOCITY_FACTOR[]    = { false }; /** Treat Switches a
 static const         bool VELOCITY_EXPLICIT[]  = { false }; /** Require all switches to trigger a block */
 
 bool Velocity_check(int nHeight);
-bool Velocity(CBlockIndex* prevBlock, CBlock* block);
+bool Velocity(CBlockIndex* prevBlock, const CBlock& block);
 
 int VelocityI(int nHeight);
 
