@@ -152,7 +152,7 @@ public:
         consensus.nBudgetPaymentsWindowBlocks = 100;
         consensus.nSuperblockStartBlock = 300; // The block at which 12.1 goes live (end of final 12.0 budget cycle)
         //Nash TODO
-         consensus.nSuperblockStartHash = uint256S("0000000000020cb27c7ef164d21003d5d20cdca2f54dd9a9ca6d45f4d47f8aa3");
+        consensus.nSuperblockStartHash = uint256S("0000000000020cb27c7ef164d21003d5d20cdca2f54dd9a9ca6d45f4d47f8aa3");
         consensus.nSuperblockCycle = 16616; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
@@ -167,7 +167,8 @@ public:
         consensus.nPowTargetSpacing = 1 * 8 * 60; // Nucleon: 8 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nPoWVRXHeight = 6090;
+        consensus.nPoWVRXHeight = 6330;
+        consensus.nPoWVelocityHeight = 6335;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
         consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;

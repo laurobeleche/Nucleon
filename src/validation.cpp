@@ -35,6 +35,7 @@
 #include "utilmoneystr.h"
 #include "utilstrencodings.h"
 #include "validationinterface.h"
+#include "velocity.h" // TODO: test implementation
 #include "versionbits.h"
 #include "warnings.h"
 
@@ -2050,9 +2051,10 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     // Now that the whole chain is irreversibly beyond that time it is applied to all blocks except the
     // two in the chain that violate it. This prevents exploiting the issue against nodes during their
     // initial block download.
+    // TODO: correctly toggle bip30 enforcement and implemented hash
     bool fEnforceBIP30 = (!pindex->phashBlock) || // Enforce on CreateNewBlock invocations which don't have a hash.
-                          !((pindex->nHeight==91842 && pindex->GetBlockHash() == uint256S("0x00000000000a4d0a398161ffc163c503763b1f4360639393e0e4c8e300e0caec")) ||
-                           (pindex->nHeight==91880 && pindex->GetBlockHash() == uint256S("0x00000000000743f190a18c5577a3c2d2a1f610ae9601ac046a38084ccb7cd721")));
+                          !((pindex->nHeight==91842 && pindex->GetBlockHash() == uint256S("0x")) ||
+                           (pindex->nHeight==91880 && pindex->GetBlockHash() == uint256S("0x")));
 
     // Once BIP34 activated it was not possible to create new duplicate coinbases and thus other than starting
     // with the 2 existing duplicate coinbase pairs, not possible to create overwriting txs.  But by the
@@ -3541,6 +3543,20 @@ static bool AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CValidation
     if (!AcceptBlockHeader(block, state, chainparams, &pindex))
         return false;
 
+    int nHeight = pindex->nHeight;
+
+    //
+    // Check block against Velocity parameters
+    //
+    if(Velocity_check(nHeight))
+    {
+        // Announce Velocity constraint failure
+        if(!Velocity(pindex->pprev, this))
+        {
+            return DoS(100, error("AcceptBlock() : Velocity rejected block %d, required parameters not met", nHeight));
+        }
+    }
+
     // Try to process all requested blocks that we don't have, but only
     // process an unrequested block if it's new and has enough work to
     // advance our tip, and isn't too many blocks ahead.
@@ -3581,8 +3597,6 @@ static bool AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CValidation
     // (but if it does not build on our best tip, let the SendMessages loop relay it)
     if (!IsInitialBlockDownload() && chainActive.Tip() == pindex->pprev)
         GetMainSignals().NewPoWValidBlock(pindex, pblock);
-
-    int nHeight = pindex->nHeight;
 
     // Write block to history file
     try {

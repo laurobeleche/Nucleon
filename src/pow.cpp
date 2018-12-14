@@ -4,7 +4,6 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "pow.h"
-
 #include "arith_uint256.h"
 #include "chain.h"
 #include "chainparams.h"
@@ -45,12 +44,12 @@ unsigned int Terminal_Velocity_RateX(const CBlockIndex* pindexLast, const CBlock
     int64_t FRrateFLR = DSrateNRM - (2 * 60);
     int64_t difficultyfactor = 0;
     int64_t AverageDivisor = 5;
-    int64_t scanheight = 6090;
+    int64_t scanheight = 6330;
     int64_t scanblocks = 1;
     int64_t scantime_1 = 0;
     int64_t scantime_2 = pindexLast->GetBlockTime();
     // Check for blocks to index | Allowing for initial chain start
-    if (pindexLast->nHeight < scanheight+2)
+    if (pindexLast->nHeight < scanheight)
         return bnTerminalVelocity.GetCompact(); // can't index prevblock
     // Set prev blocks...
     const CBlockIndex* pindexPrev = pindexLast;
@@ -166,7 +165,7 @@ unsigned int GetNextWorkRequiredBTC(const CBlockIndex* pindexLast, const CBlockH
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
     // Most recent algo first
-    if (pindexLast->nHeight + 1 >= params.nPowVRXHeight) {
+    if (pindexLast->nHeight >= params.nPowVRXHeight) {
         return Terminal_Velocity_RateX(pindexLast, pblock, params);
     }
     else {
