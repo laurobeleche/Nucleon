@@ -6,6 +6,7 @@
 #include "chain.h"
 #include "validation.h"
 #include "velocity.h"
+#include "util.h"
 #include "rpc/server.h"
 
 /* VelocityI(int nHeight) ? i : -1
@@ -39,7 +40,7 @@ bool Velocity_check(int nHeight)
    Returns true if proposed Block matches constrains */
 bool Velocity(CBlockIndex* prevBlock, const CBlock& block)
 {
-    const MapPrevTx mapInputs;
+    //const MapPrevTx mapInputs;
 
     // Define values
     int64_t TXvalue = 0;
