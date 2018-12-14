@@ -59,10 +59,10 @@ bool Velocity(CBlockIndex* prevBlock, const CBlock& block)
     int i = VelocityI(nHeight);
     int HaveCoins = false;
     // Set stanard values
-    TXrate = block->GetBlockTime() - prevBlock->GetBlockTime();
-    TXstampC = block->nTime;
+    TXrate = block.GetBlockTime() - prevBlock->GetBlockTime();
+    TXstampC = block.nTime;
     TXstampO = prevBlock->nTime;
-    CURstamp = block->GetBlockTime();
+    CURstamp = block.GetBlockTime();
     OLDstamp = prevBlock->GetBlockTime();
     CURvalstamp = prevBlock->GetBlockTime() + VELOCITY_MIN_RATE[i];
     OLDvalstamp = prevBlock->pprev->GetBlockTime() + VELOCITY_MIN_RATE[i];
