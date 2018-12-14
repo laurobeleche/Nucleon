@@ -1313,7 +1313,7 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
     // mainnet:
     if(nHeight < 10000){ 
         dMasternodePart = dMasternodeBase; // 50% of the block reward
-    } else if(nHeight => 10000 && nHeight <= 50000){
+    } else if(nHeight >= 10000 && nHeight <= 50000){
         dMasternodePart = dMasternodeBase + dMasternodeModifier; // Sliding scale from 50% to 90% of the block reward
     }
 
@@ -3548,7 +3548,7 @@ static bool AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CValidation
     if(Velocity_check(nHeight))
     {
         // Announce Velocity constraint failure
-        if(!Velocity(pindex->pprev, block))
+        if(!Velocity(pindex->pprev, *block))
         {
             return state.DoS(100, error("AcceptBlock() : Velocity rejected block %d, required parameters not met", nHeight));
         }
