@@ -9,6 +9,7 @@
 #include "chainparams.h"
 #include "primitives/block.h"
 #include "uint256.h"
+#include "util.h"
 
 #include <math.h>
 
@@ -166,9 +167,17 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 {
     // Most recent algo first
     if (pindexLast->nHeight >= params.nPowVRXHeight) {
+        // Print for debugging
+        if(fDebug)
+            LogPrintf("Retargeting using VRX retarget logic \n");
+
         return Terminal_Velocity_RateX(pindexLast, pblock, params);
     }
     else {
+        // Print for debugging
+        if(fDebug)
+            LogPrintf("Retargeting using BTC retarget logic \n");
+
         return GetNextWorkRequiredBTC(pindexLast, pblock, params);
     }
 }
