@@ -19,6 +19,7 @@
 #include "sync.h"
 #include "versionbits.h"
 #include "spentindex.h"
+#include "consensus/params.h"
 
 #include <algorithm>
 #include <exception>
