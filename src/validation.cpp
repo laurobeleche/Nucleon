@@ -3370,7 +3370,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 {
     const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
     // Check proof of work
-    if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= params.nPowVRXHeight){
+    if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 6330){
         // architecture issues with DGW v1 and v2, Wich were removed and replaced with VRX
         // This is kept for legacy support
         unsigned int nBitsNext = GetNextWorkRequired(pindexPrev, &block, consensusParams);
@@ -3389,7 +3389,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if(Velocity_check(nHeight))
     {
         // Announce Velocity constraint failure
-        if(!Velocity(pindexPrev, block))
+        if(!Velocity(pindexPrev, this))
         {
             return state.DoS(100, error("CheckBlock() : Velocity rejected block %d, required parameters not met", nHeight),
                             REJECT_INVALID, "velocity-failure");
