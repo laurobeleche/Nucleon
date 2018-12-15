@@ -166,7 +166,7 @@ unsigned int GetNextWorkRequiredBTC(const CBlockIndex* pindexLast, const CBlockH
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
     // Most recent algo first
-    if (pindexLast->nHeight >= params.nPowVRXHeight) {
+    if (pindexLast->nHeight+1 >= params.nPowVRXHeight) {
         // Print for debugging
         if(fDebug)
             LogPrintf("Retargeting using VRX retarget logic \n");
