@@ -3369,7 +3369,6 @@ static bool CheckIndexAgainstCheckpoint(const CBlockIndex* pindexPrev, CValidati
 bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev, int64_t nAdjustedTime)
 {
     const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
-    const CBlock& curblock = *block;
     // Check proof of work
     if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 6330){
         // architecture issues with DGW v1 and v2, Wich were removed and replaced with VRX
@@ -3390,7 +3389,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if(Velocity_check(nHeight))
     {
         // Announce Velocity constraint failure
-        if(!Velocity(pindexPrev, curblock))
+        if(!Velocity(pindexPrev, block))
         {
             return state.DoS(100, error("CheckBlock() : Velocity rejected block %d, required parameters not met", nHeight),
                             REJECT_INVALID, "velocity-failure");

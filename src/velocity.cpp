@@ -38,7 +38,7 @@ bool Velocity_check(int nHeight)
 /* Velocity(CBlockIndex* prevBlock, CBlock* block) ? true : false
    Goes close to the top of CBlock::AcceptBlock
    Returns true if proposed Block matches constrains */
-bool Velocity(CBlockIndex* prevBlock, const CBlock& block)
+bool Velocity(CBlockIndex* prevBlock, CBlock& block)
 {
     //const MapPrevTx mapInputs;
 
