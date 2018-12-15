@@ -3389,7 +3389,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if(Velocity_check(nHeight))
     {
         // Announce Velocity constraint failure
-        if(!Velocity(pindex->pprev, block))
+        if(!Velocity(pindexPrev, &block))
         {
             return state.DoS(100, error("AcceptBlock() : Velocity rejected block %d, required parameters not met", nHeight));
         }
