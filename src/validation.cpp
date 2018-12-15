@@ -3385,17 +3385,6 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
             return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, strprintf("incorrect proof of work at %d", nHeight));
     }
 
-    // Check block against Velocity parameters
-    if(Velocity_check(nHeight))
-    {
-        // Announce Velocity constraint failure
-        if(!Velocity(pindexPrev, block))
-        {
-            return state.DoS(100, error("CheckBlock() : Velocity rejected block %d, required parameters not met", nHeight),
-                            REJECT_INVALID, "velocity-failure");
-        }
-    }
-
     // Check timestamp against prev
     if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast())
         return state.Invalid(false, REJECT_INVALID, "time-too-old", "block's timestamp is too early");
@@ -3553,6 +3542,16 @@ static bool AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CValidation
         return false;
 
     int nHeight = pindex->nHeight;
+
+    // Check block against Velocity parameters
+    if(Velocity_check(nHeight))
+    {
+        // Announce Velocity constraint failure
+        if(!Velocity(pindex->pprev, block))
+        {
+            return state.DoS(100, error("CheckBlock() : Velocity rejected block %d, required parameters not met", nHeight), REJECT_INVALID, "velocity-failure");
+        }
+    }
 
     // Try to process all requested blocks that we don't have, but only
     // process an unrequested block if it's new and has enough work to
