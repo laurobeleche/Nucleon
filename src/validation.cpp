@@ -3370,14 +3370,15 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 {
     const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
     // Check proof of work
-    if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 68589){
-        // architecture issues with DGW v1 and v2)
+    if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 6330){
+        // architecture issues with DGW v1 and v2, Wich were removed and replaced with VRX
+        // This is kept for legacy support
         unsigned int nBitsNext = GetNextWorkRequired(pindexPrev, &block, consensusParams);
         double n1 = ConvertBitsToDouble(block.nBits);
         double n2 = ConvertBitsToDouble(nBitsNext);
 
         if (abs(n1-n2) > n1*0.5)
-            return state.DoS(100, error("%s : incorrect proof of work (DGW pre-fork) - %f %f %f at %d", __func__, abs(n1-n2), n1, n2, nHeight),
+            return state.DoS(100, error("%s : incorrect proof of work (VRX pre-fork) - %f %f %f at %d", __func__, abs(n1-n2), n1, n2, nHeight),
                             REJECT_INVALID, "bad-diffbits");
     } else {
         if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
@@ -3542,9 +3543,7 @@ static bool AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CValidation
 
     int nHeight = pindex->nHeight;
 
-    //
     // Check block against Velocity parameters
-    //
     if(Velocity_check(nHeight))
     {
         // Announce Velocity constraint failure
