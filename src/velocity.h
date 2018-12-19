@@ -13,8 +13,8 @@
 class CBlock;
 class CBlockIndex;
 
-static const          int VELOCITY_HEIGHT[]    = { 6335 }; /** Height to start Velocity */
-static const          int VELOCITY_TERMINAL[]  = { 6330 }; /** Height to start Velocity retargetting */
+static const          int VELOCITY_HEIGHT[]    = { 6715 }; /** Height to start Velocity */
+static const          int VELOCITY_TERMINAL[]  = { 6720 }; /** Height to start Velocity retargetting */
 static const          int VELOCITY_MAX_RATE[]  = { (1 * 8 * 60) + (3 * 60) }; /** Rate to Velocity in seconds */
 static const          int VELOCITY_RATE[]      = { (1 * 8 * 60) }; /** Rate to Velocity in seconds */
 static const          int VELOCITY_MIN_RATE[]  = { (1 * 8 * 60) - (3 * 60) }; /** Rate to Velocity in seconds */

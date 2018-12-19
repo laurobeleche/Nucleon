@@ -3370,7 +3370,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 {
     const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
     // Check proof of work
-    if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 6335){
+    if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 6715){
         // architecture issues with DGW v1 and v2, Wich were removed and replaced with VRX
         // This is kept for legacy support
         unsigned int nBitsNext = GetNextWorkRequired(pindexPrev, &block, consensusParams);
