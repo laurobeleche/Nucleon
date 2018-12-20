@@ -167,8 +167,8 @@ public:
         consensus.nPowTargetSpacing = 1 * 8 * 60; // Nucleon: 8 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nPowVRXHeight = 6715;
-        consensus.nPowVelocityHeight = 6720;
+        consensus.nPowVRXHeight = 6800;
+        consensus.nPowVelocityHeight = 6810;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
         consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;

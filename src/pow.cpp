@@ -45,13 +45,13 @@ unsigned int Terminal_Velocity_RateX(const CBlockIndex* pindexLast, const CBlock
     int64_t FRrateFLR = DSrateNRM - (2 * 60);
     int64_t difficultyfactor = 0;
     int64_t AverageDivisor = 5;
-    int64_t scanheight = 6330;
+    int64_t scanheight = 6;
     int64_t scanblocks = 1;
     int64_t scantime_1 = 0;
     int64_t scantime_2 = pindexLast->GetBlockTime();
-    // Check for blocks to index | Allowing for initial chain start
-    if (pindexLast->nHeight < scanheight)
-        return bnTerminalVelocity.GetCompact(); // can't index prevblock
+    // Check for blocks to index | Allowing for diff reset
+    if (pindexLast->nHeight < params.nPowVRXHeight+2)
+        return bnTerminalVelocity.GetCompact(); // reset diff
     // Set prev blocks...
     const CBlockIndex* pindexPrev = pindexLast;
     // ...and deduce spacing
