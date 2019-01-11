@@ -12,7 +12,7 @@ QProgressBar::chunk {
 }
 
 QStatusBar {
-background-color:rgba(0, 0, 0, 180);
+background-color:rgba(0, 0, 0, 125);
 border:0px solid #000;
 color:#fff;
 }
@@ -52,14 +52,14 @@ color:#333;
 }
 
 QToolBar {
-background-color:rgba(13, 44, 77, 180);
+background-color:rgba(13, 44, 77, 125);
 border:0px solid #000;
 padding:0;
 margin:0;
 }
 
 QToolBar > QToolButton {
-background-color:rgba(13, 44, 77, 180);
+background-color:rgba(13, 44, 77, 255);
 border:0px solid #333;
 min-height:2.5em;
 min-width: 8em;
@@ -69,7 +69,7 @@ color:#fff;
 }
 
 QToolBar > QToolButton:checked {
-background-color:rgba(75, 94, 117, 180);
+background-color:rgba(75, 94, 117, 255);
 color:#fff;
 font-weight:bold;
 }
@@ -881,7 +881,7 @@ QWidget .QFrame#frame .QLabel#labelImmatureText { /* Immature Balance Label */
 qproperty-alignment: 'AlignVCenter | AlignRight';
 min-width:160px;
 font-size:12px;
-background-color:rgba(79, 79, 79, 180);
+background-color:rgba(79, 79, 79, 125);
 color:#ffffff;
 margin-right:5px;
 padding-right:5px;
@@ -905,7 +905,7 @@ QWidget .QFrame#frame .QLabel#labelTotalText { /* Total Balance Label */
 qproperty-alignment: 'AlignVCenter | AlignRight';
 min-width:160px;
 font-size:12px;
-background-color:rgba(79, 79, 79, 180);
+background-color:rgba(79, 79, 79, 125);
 margin-right:5px;
 padding-right:5px;
 color:#ffffff;
