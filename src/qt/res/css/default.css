@@ -10,9 +10,12 @@ background-color:#000;
 QProgressBar::chunk {
     background-color: rgba(14, 44, 77, 180);
 }
+QProgressBar {
+    background-color: rgba(255, 255, 255, 125);
+}
 
 QStatusBar {
-background-color:rgb(0, 0, 0);
+background-color:rgba(0, 0, 0, 0);
 border:0px solid #000;
 color:#fff;
 }
