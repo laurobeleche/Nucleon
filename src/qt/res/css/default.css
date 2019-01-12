@@ -586,7 +586,11 @@ QDialog#SignVerifyMessageDialog QPushButton#clearButton_VM:pressed {
 border:1px solid #9e9e9e;
 }
 
-QWidget#MasternodeList .QTabWidget::pane{
+QWidget#MasternodeList {
+	background-color: transparent;
+}
+
+QWidget#MasternodeList .QFrame#frameList {
 	background-color: transparent;
 }
 
