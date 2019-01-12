@@ -53,6 +53,9 @@
         <number>0</number>
        </property>
        <widget class="QWidget" name="tabMyMasternodes">
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;</string>
+        </property>
         <attribute name="title">
          <string>My Masternodes</string>
         </attribute>
