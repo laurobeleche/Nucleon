@@ -589,7 +589,9 @@ border:1px solid #9e9e9e;
 QWidget#MasternodeList .QTabWidget {
 	background-color: transparent;
 }
-
+QTableWidget#tableWidgetMyMasternodes {
+	background-color: transparent;
+}
 QWidget#MasternodeList .QTabWidget .QWidget{
 	background-color: transparent;
 }
