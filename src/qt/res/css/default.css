@@ -55,14 +55,14 @@ color:#333;
 }
 
 QToolBar {
-background-color:rgba(13, 44, 77, 255);
+background-color:rgba(66, 70, 73, 255);
 border:0px solid #000;
 padding:0;
 margin:0;
 }
 
 QToolBar > QToolButton {
-background-color:rgba(13, 44, 77, 255);
+background-color:rgba(66, 70, 73, 255);
 border:0px solid #333;
 min-height:2.5em;
 min-width: 8em;
@@ -72,7 +72,7 @@ color:#fff;
 }
 
 QToolBar > QToolButton:checked {
-background-color:rgba(75, 94, 117, 255);
+background-color:rgba(106, 110, 114, 255);
 color:#fff;
 font-weight:bold;
 }
@@ -118,7 +118,7 @@ background-color:#f2f2f2;
 /*******************************************************/
 
 QPushButton { /* Global Button Style */
-background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 rgba(11, 75, 132, 180), stop: .1 rgba(6, 53, 96, 180), stop: .95 rgba(6, 53, 96, 180), stop: 1 rgba(3, 35, 69, 180));
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 rgba(14, 17, 20, 180), stop: .1 rgba(13, 18, 22, 180), stop: .95 rgba(13, 18, 22, 180), stop: 1 rgba(14, 17, 20, 180));
 border:0;
 border-radius:3px;
 color:#ffffff;
@@ -132,7 +132,7 @@ padding-bottom:5px;
 }
 
 QPushButton:hover {
-background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #0b4b84, stop: .1 #0b4b84, stop: .95 #0b4b84, stop: 1 #1D80B5);
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #687077, stop: .1 #687077, stop: .95 #687077, stop: 1 #9dabb2);
 color:#ffffff;
 }
 
@@ -298,7 +298,7 @@ background-color:transparent;
 
 QHeaderView::section { /* Table Header Sections */
 qproperty-alignment:center;
-background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 0.25, stop: 0 rgba(16, 112, 176, 180), stop: 1 rgba(1, 32, 66, 180));
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 0.25, stop: 0 rgba(79, 79, 79, 180), stop: 1 rgba(45, 45, 45, 180));
 color:#fff;
 min-height:25px;
 font-weight:bold;
@@ -849,7 +849,7 @@ margin-left:16px;
 QWidget .QFrame#frame .QLabel#labelBalanceText { /* Available Balance Label */
 qproperty-alignment: 'AlignVCenter | AlignRight';
 min-width:160px;
-background-color:rgba(1, 32, 66, 180);
+background-color:rgba(52, 55, 58, 180);
 color:#ffffff;
 margin-right:5px;
 padding-right:5px;
@@ -967,7 +967,7 @@ QWidget .QFrame#framePrivateSend .QLabel#labelPrivateSendHeader { /* PrivateSend
 qproperty-alignment: 'AlignVCenter | AlignCenter';
 max-width: 421px;
 min-width: 421px;
-background-color:rgba(1, 32, 66, 180);
+background-color:rgba(52, 54, 56, 180);
 color:#fff;
 margin-right: 5px;
 padding-right: 5px;
