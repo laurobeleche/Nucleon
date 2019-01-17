@@ -8,7 +8,7 @@ background-color:#000;
 }
  
 QProgressBar::chunk {
-    background-color: rgba(14, 44, 77, 180);
+    background-color: rgba(54, 54, 54, 180);
 }
 QProgressBar {
     background-color: rgba(255, 255, 255, 125);
